@@ -2,15 +2,22 @@
 //Creiamo un array contenente le partite di basket di un’ipotetica tappa del calendario. Ogni array avrà una squadra di casa e una squadra ospite, punti fatti dalla squadra di casa e punti fatti dalla squadra ospite. Stampiamo a schermo tutte le partite con questo schema.
 
 $partite = [
-    ['olimpia', 'milano', '54', '70'],
-    ['bari', 'roma', '78', '35']
+    [
+        'home_team' => 'olimpia',
+        'guest_team' => 'milano',
+        'home_score' => 54,
+        'guest_score' => 70
+    ],
+    [
+        'home_team' => 'bari',
+        'guest_team' => 'roma',
+        'home_score' => 78,
+        'guest_score' => 35
+    ]
 ];
 
-foreach ($partite as $item) {
-    foreach ($item as $items) {
-        echo $items . ' ';
-    }
-}
+var_dump($partite);
+
 
 ?>
 
@@ -25,7 +32,11 @@ foreach ($partite as $item) {
 </head>
 
 <body>
-
+    <ul>
+        <?php foreach ($partite as $partita) : ?>
+            <li> <?php echo $partita['home_team'] . '-' . $partita['guest_team'] ?> | <?php echo $partita['home_score'] . '-' . $partita['guest_score'] ?> </li>
+        <?php endforeach; ?>
+    </ul>
 </body>
 
 </html>
